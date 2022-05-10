@@ -17,7 +17,7 @@
     },
     "require": {
         "php": ">=7.4.0",
-        "doctrine/orm": "2.8.5",
+        "doctrine/orm": "2.12.2",
         "doctrine/dbal": "^3.3",   
         "symfony/expression-language": "^5.3",
         "monolog/monolog": "^2.3",
