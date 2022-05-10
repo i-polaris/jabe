@@ -34,7 +34,8 @@ use Jabe\Model\Bpmn\Instance\{
     SequenceFlowInterface,
     SubProcessInterface,
     TransactionInterface,
-    UserTaskInterface
+    UserTaskInterface,
+    TaskInterface
 };
 
 abstract class AbstractFlowNodeBuilder extends AbstractFlowElementBuilder
@@ -137,6 +138,11 @@ abstract class AbstractFlowNodeBuilder extends AbstractFlowElementBuilder
         }
 
         return $builder;
+    }
+    
+    public function task(?string $id = null): TaskBuilder
+    {
+        return $this->createTargetBuilder(TaskInterface::class, $id);
     }
 
     public function serviceTask(?string $id = null): ServiceTaskBuilder
