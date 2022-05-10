@@ -7,6 +7,7 @@ use Jabe\Model\Xml\Instance\ModelElementInstanceInterface;
 use Jabe\Model\Xml\Impl\Instance\ModelTypeInstanceContext;
 use Jabe\Model\Xml\Type\ModelTypeInstanceProviderInterface;
 use Jabe\Model\Bpmn\Exception\BpmnModelException;
+use Jabe\Model\Bpmn\Builder\TaskBuilder;
 use Jabe\Model\Bpmn\Builder\AbstractTaskBuilder;
 use Jabe\Model\Bpmn\Impl\BpmnModelConstants;
 use Jabe\Model\Bpmn\Instance\{
@@ -52,7 +53,7 @@ class TaskImpl extends ActivityImpl implements TaskInterface
 
     public function builder(): AbstractTaskBuilder
     {
-        throw new BpmnModelException("No builder implemented");
+        return new TaskBuilder($this->modelInstance, $this);
     }
 
     public function getDiagramElement(): BpmnShapeInterface
